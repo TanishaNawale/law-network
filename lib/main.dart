@@ -1,12 +1,11 @@
 import 'package:baap_market/util/routes/routing.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
-import 'package:go_router/go_router.dart';
+
 void main() => runApp(MyApp());
 
 class MyApp extends StatelessWidget {
-  final Routes appRoutes = Routes(); // Initialize Routes object
-
+  final appRoutes = Routes();
   @override
   Widget build(BuildContext context) {
     return ScreenUtilInit(
@@ -16,8 +15,7 @@ class MyApp extends StatelessWidget {
       builder: (_, child) {
         return MaterialApp.router(
           debugShowCheckedModeBanner: false,
-          title: 'Baap Market',
-          // Assign the route parser, provider, and delegate from the Routes object
+          title: 'Legal Advice',
           routeInformationParser: appRoutes.router.routeInformationParser,
           routeInformationProvider: appRoutes.router.routeInformationProvider,
           routerDelegate: appRoutes.router.routerDelegate,

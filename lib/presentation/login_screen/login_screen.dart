@@ -1,6 +1,9 @@
 import 'package:baap_market/presentation/login_screen/carousel_screen.dart';
+import 'package:baap_market/util/routes/routing.dart';
+
 import 'package:baap_market/widget/button_widget.dart';
 import 'package:flutter/material.dart';
+import 'package:go_router/go_router.dart';
 
 class Login extends StatefulWidget {
   const Login({super.key});
@@ -30,7 +33,9 @@ class _LoginState extends State<Login> {
                       buttonTextColor: const Color.fromARGB(255, 26, 25, 25),
                       borderRadius: 10,
                       borderColor: Colors.black,
-                      onPressed: () {},
+                      onPressed: () {
+                        context.push(Routes.phoneScreen);
+                      },
                     )),
                 TextButtonWidget(
                   buttonText: 'Build a Case',

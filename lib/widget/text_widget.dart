@@ -13,6 +13,7 @@ class TextWidget extends StatelessWidget {
     this.letterSpacing,
     this.context,
     this.textAlign,
+    this.underline = false, // Add underline property with default value false
   }) : super(key: key);
 
   final String? data;
@@ -24,6 +25,7 @@ class TextWidget extends StatelessWidget {
   final double? letterSpacing;
   final BuildContext? context;
   final TextAlign? textAlign;
+  final bool underline; // New property to control underlining
 
   @override
   Widget build(BuildContext context) {
@@ -35,8 +37,11 @@ class TextWidget extends StatelessWidget {
         fontSize: fontSize,
         height: height,
         letterSpacing: letterSpacing,
-        decoration:
-            lineThrough ? TextDecoration.lineThrough : TextDecoration.none,
+        decoration: underline // Use underline property to decide whether to underline text or not
+            ? TextDecoration.underline
+            : lineThrough
+                ? TextDecoration.lineThrough
+                : TextDecoration.none,
       ),
       textAlign: textAlign,
     );
