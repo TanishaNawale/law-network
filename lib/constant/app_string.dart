@@ -1,5 +1,5 @@
 class AppString {
-  static const String first_title = "Law";
+  static const String lawyertext = "Be Assured About The Good Lawyer";
 
 
 }
