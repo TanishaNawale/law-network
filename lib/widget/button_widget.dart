@@ -1,8 +1,8 @@
 import 'package:flutter/material.dart';
-import 'text_widget.dart';
 
-class ButtonWidget extends StatelessWidget {
-  const ButtonWidget({
+class TextButtonWidget extends StatelessWidget {
+
+  const TextButtonWidget({
     Key? key,
     this.radius,
     this.context,
@@ -19,6 +19,7 @@ class ButtonWidget extends StatelessWidget {
     this.fontSize,
     this.disabledBackgroundColor,
     this.borderRadius,
+    this.borderRadiusColor, // New parameter for border radius color
   }) : super(key: key);
 
   final double? radius;
@@ -36,30 +37,35 @@ class ButtonWidget extends StatelessWidget {
   final double? fontSize;
   final Color? disabledBackgroundColor;
   final double? borderRadius;
+  final Color? borderRadiusColor; // New parameter for border radius color
+  
   @override
   Widget build(BuildContext context) {
-    return ElevatedButton(
+    return TextButton(
       onPressed: onPressed,
-      style: ElevatedButton.styleFrom(
-        fixedSize: Size(width ?? 140, height ?? 30),
-        backgroundColor: backGroundColor,
+      style: TextButton.styleFrom(
+        backgroundColor: backGroundColor ?? Colors.transparent, // Set background color
+        padding: EdgeInsets.all(16), // Set padding
         shape: RoundedRectangleBorder(
-          borderRadius: BorderRadius.circular(radius ?? 0),
+          borderRadius: BorderRadius.circular(borderRadius ?? 10), // Set border radius
           side: BorderSide(
-            color: borderColor ?? Colors.transparent,
-            width: borderWidth ?? 0,
+            color: borderColor ?? Colors.transparent, // Set border color
+            width: borderWidth ?? 0, // Set border width
           ),
         ),
       ),
-      child: TextWidget(
-        textAlign: TextAlign.center,
-        context: context,
-        data: buttonText,
-        fontWeight: buttonTextfontWeight ?? FontWeight.w300,
-        fontSize: buttonTextSize ?? 12,
-        letterSpacing: 1,
-        color: buttonTextColor,
+      child: Text(
+        buttonText,
+        style: TextStyle(
+          color: buttonTextColor ?? Colors.black, // Set text color
+          fontSize: buttonTextSize ?? 16, // Set font size
+          fontWeight: buttonTextfontWeight ?? FontWeight.normal, // Set font weight
+        ),
       ),
     );
   }
 }
+
+
+
+
